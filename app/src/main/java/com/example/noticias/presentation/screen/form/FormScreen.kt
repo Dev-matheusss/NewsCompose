@@ -1,5 +1,6 @@
 package com.example.noticias.presentation.screen.form
 
+import android.content.Intent
 import android.util.Log
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -13,11 +14,14 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.noticias.R
 
 @Composable
-@Preview(showSystemUi = true)
-fun FormScreen() {
+fun FormScreen(
+    navigateTo: ()-> Unit = {}
+) {
 
     var titulo by remember { mutableStateOf("") }
     var descricao by remember { mutableStateOf("") }
@@ -41,10 +45,11 @@ fun FormScreen() {
 
         Button(
             onClick = {
-                Log.d("Login", "titulo: $titulo, descricao: $descricao mensagem: $mensagem")
+                navigateTo()
+
             }
         ) {
-            Text("nome do button")
+            Text (stringResource(id = R.string.button_cadastrar))
         }
     }
 }
@@ -63,3 +68,10 @@ fun Forms(
         }
     )
 }
+
+@Composable
+@Preview(showSystemUi = true)
+fun FormScreenPreview() {
+    FormScreen()
+}
+
