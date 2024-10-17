@@ -16,6 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.noticias.R
@@ -27,7 +28,7 @@ fun ListScreen(
     navigateTo: () -> Unit = {}
 ){
     val dataBase = DataBase()
-    val newsList = dataBase.getList()
+    val newsList = dataBase.readList()
     LazyColumn(
         contentPadding = PaddingValues(16.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp)
@@ -75,16 +76,12 @@ fun NewItem(
                     navigateTo()
                 }
             ) {
-                Text("Ver")
+                Text(stringResource(id = R.string.button_ver))
             }
         }
     }
 
 
-}
-
-@Composable
-fun CardNews(news: News) {
 }
 
 @Composable

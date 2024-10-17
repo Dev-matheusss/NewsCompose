@@ -14,7 +14,9 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.noticias.R
 
 @Composable
 fun FormScreen(
@@ -47,7 +49,7 @@ fun FormScreen(
 
             }
         ) {
-            Text("Cadastrar")
+            Text (stringResource(id = R.string.button_cadastrar))
         }
     }
 }
